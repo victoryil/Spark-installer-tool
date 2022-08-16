@@ -15,7 +15,7 @@ Environment variables will be added automatically for each system
 
 ## Windows Version
 Running the ps1 script in the powershell as follows:
-**.\your_directory\launcher.ps1**
+**.\your_directory\installer-win.ps1**
 You can install version 3.2.2 of spark and hadoop
 
 ### Common problems
