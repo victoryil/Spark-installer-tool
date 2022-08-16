@@ -48,3 +48,5 @@ We will be able to pass it arguments to dynamically decide where to install it, 
 
 ## Mac version
 State: Pending
+
+[Jira boards with Issues and Feautures](https://victoryil.atlassian.net/jira/software/projects/SIT/boards/1) 
