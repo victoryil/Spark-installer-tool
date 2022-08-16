@@ -28,10 +28,23 @@ This version auto-set windows enviroment variables
 None
 
 ### Feautures
-The installation will be generated for different systems and we will be able to pass it arguments to dynamically decide where to install it, always maintaining a default configuration for the ease of users.
+We will be able to pass it arguments to dynamically decide where to install it, always maintaining a default configuration for the ease of users.
 
 ## Linux version
-State: Pending
+Running the sh script in terminal as follows:
+**source installer-linux.sh**
+You can install version 3.2.2 of spark and hadoop
+
+This version auto-set windows enviroment variables
+
+### Common problems
+During launch you may be asked to enter your admin password
+
+### Bugs 
+None
+
+### Feautures
+We will be able to pass it arguments to dynamically decide where to install it, always maintaining a default configuration for the ease of users.
 
 ## Mac version
 State: Pending
