@@ -29,3 +29,9 @@ None
 
 ### Feautures
 The installation will be generated for different systems and we will be able to pass it arguments to dynamically decide where to install it, always maintaining a default configuration for the ease of users.
+
+## Linux version
+State: Pending
+
+## Mac version
+State: Pending
