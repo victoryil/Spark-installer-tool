@@ -1,6 +1,4 @@
 
-[CONFLUENCE](https://victoryil.atlassian.net/l/cp/y9artco0) 
-
 # Spark Installer
 
 A tool that facilitates the installation of Spark and Hadoop on different systems
