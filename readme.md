@@ -18,6 +18,11 @@ Running the ps1 script in the powershell as follows:
 **.\your_directory\launcher.ps1**
 You can install version 3.2.2 of spark and hadoop
 
+### Common problems
+If when launching you get an error message like the following '...because script execution is disabled on this system' you should run this command as administrator in your powershell before starting the script
+
+**Set-ExecutionPolicy RemoteSigned -Scope CurrentUser**
+
 This version auto-set windows enviroment variables
 ### Bugs 
 None
