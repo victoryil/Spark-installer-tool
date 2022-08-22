@@ -1,7 +1,7 @@
 """
     Author: Victor Daniel Gil Becerra
     Version: 0.1.1
-    Date: 2022-08-18
+    Update date: 2022-08-18
     License: MIT
     Description: This script is used to install hadoop and spark on any systems.
     Requirements: Python 3.7.0 or higher and requests library
