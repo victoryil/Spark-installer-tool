@@ -13,10 +13,12 @@ import platform
 from version_grabber import *
 
 class Installer:
+    hadoop_version = "3.2.2"
 
     # Hadoop
     def hadoop(self, version):
         print("Selected hadoop version is " + version)
+        self.hadoop_version = version
         os_config_hadoop = {
             "Windows": {
                 "hadoop_home": "C:\hadoop",
@@ -37,8 +39,18 @@ class Installer:
                 "env_hadoop_home_command": 'echo "export HADOOP_HOME=/opt/hadoop" >> ~/.bashrc',
                 "env_hadoop_bin_command": 'echo "export PATH=\$PATH:\$HADOOP_HOME/sbin" >> ~/.bashrc',
             },
-            "Darwin": "toimplement"
+            "Darwin": {
+                "hadoop_home": "/opt/hadoop",
+                "hadoop_bin": "/opt/hadoop/sbin",
+                "hadoop_url": "http://apache.mirrors.pair.com/hadoop/common/hadoop-3.2.4/hadoop-3.2.4.tar.gz",
+                "hadoop_file": "hadoop-3.2.4.tar.gz",
+                "extract_command": "tar -xvf {local_file} -C {home_path}",
+                "move_command": "mv",
+                "env_hadoop_home_command": 'echo "export HADOOP_HOME=/opt/hadoop" >> ~/.bashrc',
+                "env_hadoop_bin_command": 'echo "export PATH=\$PATH:\$HADOOP_HOME/sbin" >> ~/.bashrc'
+            }
         }
+
         if(platform.system()== "Windows"): 
             url = "https://github.com/cdarlint/winutils/tree/master/"
             url = "https://github.com"+getHadoopDownloadUrl(url,version)+"/winutils.exe"
@@ -46,7 +58,7 @@ class Installer:
         url = "https://archive.apache.org/dist/hadoop/core/"
         os_config_current = os_config_hadoop.get(platform.system())
 
-        
+        print(os_config_current)
         # Create enviroment variable for hadoop path
         os.system(os_config_current.get('env_hadoop_home_command'))
         os.system(os_config_current.get('env_hadoop_bin_command'))
@@ -108,15 +120,24 @@ class Installer:
                 "env_spark_home_command": 'echo "export SPARK_HOME=/opt/spark" >> ~/.bashrc',
                 "env_spark_bin_command": 'echo "export PATH=\$PATH:\$SPARK_HOME/bin" >> ~/.bashrc'
             },
-            "Darwin": "toimplement"
+            "Darwin": {
+                "spark_home": "/opt/spark",
+                "spark_bin": "/opt/spark/bin",
+                "spark_url": "http://apache.mirrors.pair.com/spark/spark-3.2.2/spark-3.2.2-bin-hadoop3.2.tgz",
+                "spark_file": "spark-3.2.2-bin-hadoop3.2.tgz",
+                "extract_command": "tar -xvf {local_file} -C /opt",
+                "move_command": "mv {source} {dest}",
+                "env_spark_home_command": 'echo "export SPARK_HOME=/opt/spark" >> ~/.bashrc',
+                "env_spark_bin_command": 'echo "export PATH=\$PATH:\$SPARK_HOME/bin" >> ~/.bashrc'
+            }
         }
 
         # Save in variable os_config_current the current o  s configuration
         os_config_current = os_config_spark.get(platform.system())
 
         # Set routes for spark download
-        remote_url = os_config_current.get('spark_url')
         local_file = os_config_current.get('spark_file')
+        remote_url = getSparkDownloadUrl(version, self.hadoop_version)
 
         # Create enviroment variable for spark path
         os.system(os_config_current.get('env_spark_home_command'))

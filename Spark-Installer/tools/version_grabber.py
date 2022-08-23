@@ -52,3 +52,7 @@ def getHadoopDownloadUrl(ur, vers):
     # Reverse list to get latest version
     tar_links.reverse()
     return tar_links[0]
+def getSparkDownloadUrl(vers, hadoopVers):
+    # Use BeautifulSoup to extract all link contains tar.gz and save in list
+    return "https://archive.apache.org/dist/spark/" + vers + "/" + vers  + "-bin-hadoop" + hadoopVers + ".tgz"
+    
