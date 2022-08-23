@@ -10,7 +10,9 @@
 from urllib import request
 import os
 import platform
-from version_grabber import *
+
+from tools.version_grabber import getHadoopDownloadUrl, getSparkDownloadUrl
+
 
 class Installer:
     hadoop_version = "3.2.2"
